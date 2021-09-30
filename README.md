@@ -1,4 +1,4 @@
-#Reciclando App delivery 
+# Reciclando App delivery 
 - ReciclAndo es una app que ayuda a crear un impacto y consientización ecologica mientras que ganas beneficios  que puedes ser canjeados en productos y descuentos  y con solo unas botellas de plastico podras hacer una gran diferencia en el cambio climatico.
 ## [Link del ux case del proyecto](https://www.figma.com/file/TZl198OABgCCgkhJq0nuUS/Reciclando_UX_Estudio?node-id=216%3A10)
 
