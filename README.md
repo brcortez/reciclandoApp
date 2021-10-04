@@ -1,12 +1,17 @@
+
 # Reciclando App delivery 
+ ![alt text](https://github.com/BryanApolinario/reciclandoApp/blob/main/assets/img/delivery.png)
 - ReciclAndo es una app que ayuda a crear un impacto y consientización ecologica mientras que ganas beneficios  que puedes ser canjeados en productos y descuentos  y con solo unas botellas de plastico podras hacer una gran diferencia en el cambio climatico.
-## [Link del ux case del proyecto](https://www.figma.com/file/TZl198OABgCCgkhJq0nuUS/Reciclando_UX_Estudio?node-id=216%3A10)
+
+## [Link del ux case del proyecto :art:](https://www.figma.com/file/TZl198OABgCCgkhJq0nuUS/Reciclando_UX_Estudio?node-id=216%3A10)
 
 ### Pre-requisitos 📋
 - [VisualStudio code](https://code.visualstudio.com/)
 - [Android studio](https://developer.android.com/studio?hl=es-419)
 - [Flutter](https://flutter.dev/docs/get-started/install)
-
+- [Postman](https://www.postman.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Nodejs](https://nodejs.org/es/)
 
 ### Instalación 🔧
 - para instalar Flutter seguir las [instrucciones](https://flutter.dev/docs/get-started/install/windows)
