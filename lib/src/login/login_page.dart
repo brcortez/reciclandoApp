@@ -37,8 +37,6 @@ class _LoginPageState extends State<LoginPage> {
                 _textFieldPassword(),
                 _buttonLogin (),
                 _textDontHaveAccount(),
-
-
               ],
             ),
           ],
@@ -53,8 +51,8 @@ class _LoginPageState extends State<LoginPage> {
         style: TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,
-        fontSize: 22
-
+        fontSize: 22,
+        fontFamily: 'NimbusSans'
     ),
     );
   }
