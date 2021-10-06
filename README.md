@@ -20,6 +20,70 @@
 ```bash
 flutter --version
 ```
+### Instalacion de un servidor nodejs para pruebas locales 🔧
+- crear una carpeta con el nombre de NodejsProyects/BackendDelivery 
+- copiar la ruta y pegarlo en el git bash 
+- ejecturar el comando 
+- 
+```bash
+npm init
+```
+
+- instalar las dependendecias
+```bash
+npm i express
+npm i http
+npm i morgan 
+```
+- crear un archivo server.js y copiar el siguiente codigo. 
+```Javascript
+const express = require('express');
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const logger = require('morgan');
+const cors = require('cors');
+
+
+
+const port = process.env.PORT || 3000;
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
+app.use(cors());
+
+app.disable('x-powered-by');
+app.set('port', port);
+
+server.listen(3000, 'direccion ipv4' || 'localhost', function(){
+    console.log('Aplicacion de Nodejs para la APP Reciclando en el puerto: '+ port +' iniciando...')
+} );
+
+app.get('/', (req, res) => {
+    res.send('Ruta raiz del backend');
+});
+
+app.get('/test', (req, res) => {
+    res.send('este es la ruta TEST');
+});
+// ERROR HANDLER
+app.use((err, req, res, next) => {
+    console.log(err);
+    res.status(err.sttus || 500).send(err.stack);
+});
+
+//200 es un mensaje exitosa
+//404 es un mensaje que significa que la url no existes
+//500 error interno del servidor 
+
+```
+- comprobar las rutas con postman
+
+
+
 - instalar [maquina virtual](https://www.youtube.com/watch?v=MAmrggRxEJ4) en android studio 
 - Extensiones recomenados en Visual studio Code
 	-  Awsome Flutter Snippets
