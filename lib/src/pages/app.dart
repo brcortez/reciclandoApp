@@ -1,6 +1,6 @@
+import 'package:ReciclandoAndo/src/pages/notPageFound.dart';
+import 'package:ReciclandoAndo/src/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_delivery_udemy/src/pages/notPageFound.dart';
-import 'package:flutter_delivery_udemy/src/routes/routes.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -15,6 +15,9 @@ class _MyAppState extends State<MyApp> {
       title: 'Reciclando App',
       initialRoute: '/',
       routes: getApplicationRoutes(),
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(
             builder: (BuildContext context) => NotPageFound());
