@@ -8,13 +8,13 @@
 - Diseño de la pantalla de login
 - Establecer el color por defecto para nuestra aplicación
 - Interaccion con Widgets, Animaciones y Fuentes externas
-- Agregar animaciones en Flutter
+- Sistemas animaciones en Flutter
 - Tipos de fuentes personalizadas
-- Navegar de una pantalla a otra
+- Navegacion de una pantalla a otra
 - Diseño de la pantalla de registro
-- Interactuar con los Widgets
-- Configurando Backend de nuestra aplicación
-- Crear servidor en NodeJS
+- Interaccion con los Widgets
+- Configuracion Backend de la aplicación
+- Creacion servidor en NodeJS
 - Probando rutas del servidor
 
 ![Alt Text](https://media.giphy.com/media/6Qotkeqtn2PnUBzry1/source.gif)
