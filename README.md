@@ -2,7 +2,7 @@
 # Reciclando App delivery 
  ![alt text](https://github.com/BryanApolinario/reciclandoApp/blob/main/assets/img/delivery.png)
 - ReciclAndo es una app que ayuda a crear un impacto y consientización ecologica mientras que ganas beneficios  que puedes ser canjeados en productos y descuentos  y con solo unas botellas de plastico podras hacer una gran diferencia en el cambio climatico.
-- 
+
 ### features 21/10/2021
 - Configuracion del archivo main.dart
 - Diseño de la pantalla de login
@@ -17,8 +17,8 @@
 - Crear servidor en NodeJS
 - Probando rutas del servidor
 
-![Alt Text](https://media.giphy.com/media/lqLYfrZoGjGUEbk7BK/giphy.gif)
-![Alt Text](https://media.giphy.com/media/tNBqQNCmhrsbMkcQ9Z/giphy.gif)
+![Alt Text](https://media.giphy.com/media/6Qotkeqtn2PnUBzry1/source.gif)
+
 
 
 ## [Link del ux case del proyecto :art:](https://www.figma.com/file/TZl198OABgCCgkhJq0nuUS/Reciclando_UX_Estudio?node-id=216%3A10)
