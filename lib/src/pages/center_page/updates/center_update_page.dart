@@ -1,23 +1,21 @@
-import 'package:ReciclandoAndo/src/controllers/register_controller.dart';
+import 'package:ReciclandoAndo/src/controllers/center_update_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-class RegisterCentroAcopioPage1 extends StatefulWidget {
+class CenterUpdatePage extends StatefulWidget {
   @override
-  _RegisterCentroAcopioPage1State createState() =>
-      _RegisterCentroAcopioPage1State();
+  _CenterUpdatePageState createState() => _CenterUpdatePageState();
 }
 
-class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
-  final _registerController = RegisterController();
+class _CenterUpdatePageState extends State<CenterUpdatePage> {
+  final _centerUpdateController = CenterUpdateController();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
     SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
-      _registerController.init(context);
+      _centerUpdateController.init(context);
     });
   }
 
@@ -25,32 +23,35 @@ class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Administrador'),
+        title: Text('Editar Perfil'),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.only(top: 30.0),
-          width: double.infinity,
-          child: _inputs(),
+        padding: EdgeInsets.only(top: 30.0),
+        child: Column(
+          children: [
+            _inputs(),
+          ],
         ),
       ),
     );
   }
 
   Widget _inputs() {
-    return Column(
-      children: [
-        _btnPhoto(),
-        SizedBox(height: 25.0),
-        _inputUserName(),
-        _inputUserLastName(),
-        _inputDocument(),
-        _inputPhone(),
-        _inputEmail(),
-        _inputPassword(),
-        SizedBox(height: 25.0),
-        _btnRegister(),
-      ],
+    return Container(
+      width: double.infinity,
+      child: Column(
+        children: [
+          _btnPhoto(),
+          SizedBox(height: 25.0),
+          _inputUserName(),
+          _inputUserLastName(),
+          _inputPhone(),
+          _inputAddressCenter(),
+          _inputPhoneCenter(),
+          SizedBox(height: 25.0),
+          _btnRegister(),
+        ],
+      ),
     );
   }
 
@@ -74,7 +75,7 @@ class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _registerController.nameRegisterController,
+        controller: _centerUpdateController.nameRegisterController,
         textCapitalization: TextCapitalization.words,
         maxLines: 1,
         decoration: InputDecoration(
@@ -93,7 +94,7 @@ class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _registerController.lastNameRegisterController,
+        controller: _centerUpdateController.lastNameRegisterController,
         textCapitalization: TextCapitalization.words,
         maxLines: 1,
         decoration: InputDecoration(
@@ -108,31 +109,11 @@ class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
     );
   }
 
-  Widget _inputDocument() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
-      child: TextField(
-        controller: _registerController.documentRegisterController,
-        keyboardType: TextInputType.number,
-        maxLength: 10,
-        decoration: InputDecoration(
-          hintText: 'Cédula',
-          counterText: '',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          contentPadding: EdgeInsets.all(15.0),
-          prefixIcon: Icon(Icons.article),
-        ),
-      ),
-    );
-  }
-
   Widget _inputPhone() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _registerController.phoneRegisterController,
+        controller: _centerUpdateController.phoneRegisterController,
         keyboardType: TextInputType.phone,
         maxLength: 10,
         decoration: InputDecoration(
@@ -148,56 +129,57 @@ class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
     );
   }
 
-  Widget _inputEmail() {
+  Widget _inputAddressCenter() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _registerController.emailRegisterController,
-        maxLines: 1,
-        keyboardType: TextInputType.emailAddress,
+        controller: _centerUpdateController.addressCollectionCenterController,
+        keyboardType: TextInputType.phone,
+        maxLength: 10,
         decoration: InputDecoration(
-          hintText: 'Correo Electrónico',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          contentPadding: EdgeInsets.all(15.0),
-          prefixIcon: Icon(Icons.email_rounded),
-        ),
+            hintText: 'Dirección del Centro de Acopio',
+            counterText: '',
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            contentPadding: EdgeInsets.all(15.0),
+            prefixIcon: Icon(
+              Icons.location_on,
+            )),
       ),
     );
   }
 
-  Widget _inputPassword() {
+  Widget _inputPhoneCenter() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _registerController.passwordRegisterController,
-        obscureText: true,
+        controller: _centerUpdateController.phoneCollectionCenterController,
+        keyboardType: TextInputType.phone,
+        maxLength: 10,
         decoration: InputDecoration(
-          hintText: 'Contraseña',
+          hintText: 'Teléfono Centro de Acopio',
+          counterText: '',
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
           contentPadding: EdgeInsets.all(15.0),
-          prefixIcon: Icon(Icons.vpn_key_rounded),
+          prefixIcon: Icon(Icons.phone),
         ),
       ),
     );
   }
 
   Widget _btnRegister() {
-    String route = "next";
     return Container(
       padding: EdgeInsets.only(bottom: 20.0),
       child: ElevatedButton(
-        onPressed: () {
-          _registerController.register(route);
-        },
+        onPressed: _centerUpdateController.home,
         style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(horizontal: 130.0, vertical: 15.0),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15.0))),
-        child: Text('SIGUIENTE'),
+        child: Text('ACEPTAR'),
       ),
     );
   }

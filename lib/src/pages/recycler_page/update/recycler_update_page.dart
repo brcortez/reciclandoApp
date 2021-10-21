@@ -1,23 +1,21 @@
-import 'package:ReciclandoAndo/src/controllers/register_controller.dart';
+import 'package:ReciclandoAndo/src/controllers/recycler_update_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-class RegisterCentroAcopioPage1 extends StatefulWidget {
+class RecyclerUpdatePage extends StatefulWidget {
   @override
-  _RegisterCentroAcopioPage1State createState() =>
-      _RegisterCentroAcopioPage1State();
+  _RecyclerUpdatePageState createState() => _RecyclerUpdatePageState();
 }
 
-class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
-  final _registerController = RegisterController();
+class _RecyclerUpdatePageState extends State<RecyclerUpdatePage> {
+  final _recyclerUpdateController = RecyclerUpdateController();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
     SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
-      _registerController.init(context);
+      _recyclerUpdateController.init(context);
     });
   }
 
@@ -25,32 +23,34 @@ class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Administrador'),
+        title: Text('Editar Perfil'),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.only(top: 30.0),
-          width: double.infinity,
-          child: _inputs(),
+        padding: EdgeInsets.only(top: 30.0),
+        child: Column(
+          children: [
+            _inputs(),
+          ],
         ),
       ),
     );
   }
 
   Widget _inputs() {
-    return Column(
-      children: [
-        _btnPhoto(),
-        SizedBox(height: 25.0),
-        _inputUserName(),
-        _inputUserLastName(),
-        _inputDocument(),
-        _inputPhone(),
-        _inputEmail(),
-        _inputPassword(),
-        SizedBox(height: 25.0),
-        _btnRegister(),
-      ],
+    return Container(
+      width: double.infinity,
+      child: Column(
+        children: [
+          _btnPhoto(),
+          SizedBox(height: 25.0),
+          _inputUserName(),
+          _inputUserLastName(),
+          _inputDocument(),
+          _inputPhone(),
+          SizedBox(height: 25.0),
+          _btnRegister(),
+        ],
+      ),
     );
   }
 
@@ -74,7 +74,7 @@ class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _registerController.nameRegisterController,
+        controller: _recyclerUpdateController.nameRegisterController,
         textCapitalization: TextCapitalization.words,
         maxLines: 1,
         decoration: InputDecoration(
@@ -93,7 +93,7 @@ class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _registerController.lastNameRegisterController,
+        controller: _recyclerUpdateController.lastNameRegisterController,
         textCapitalization: TextCapitalization.words,
         maxLines: 1,
         decoration: InputDecoration(
@@ -112,7 +112,7 @@ class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _registerController.documentRegisterController,
+        controller: _recyclerUpdateController.documentRegisterController,
         keyboardType: TextInputType.number,
         maxLength: 10,
         decoration: InputDecoration(
@@ -132,7 +132,7 @@ class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _registerController.phoneRegisterController,
+        controller: _recyclerUpdateController.phoneRegisterController,
         keyboardType: TextInputType.phone,
         maxLength: 10,
         decoration: InputDecoration(
@@ -148,56 +148,17 @@ class _RegisterCentroAcopioPage1State extends State<RegisterCentroAcopioPage1> {
     );
   }
 
-  Widget _inputEmail() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
-      child: TextField(
-        controller: _registerController.emailRegisterController,
-        maxLines: 1,
-        keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
-          hintText: 'Correo Electrónico',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          contentPadding: EdgeInsets.all(15.0),
-          prefixIcon: Icon(Icons.email_rounded),
-        ),
-      ),
-    );
-  }
-
-  Widget _inputPassword() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
-      child: TextField(
-        controller: _registerController.passwordRegisterController,
-        obscureText: true,
-        decoration: InputDecoration(
-          hintText: 'Contraseña',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          contentPadding: EdgeInsets.all(15.0),
-          prefixIcon: Icon(Icons.vpn_key_rounded),
-        ),
-      ),
-    );
-  }
-
   Widget _btnRegister() {
-    String route = "next";
+    String route = "registerUser";
     return Container(
       padding: EdgeInsets.only(bottom: 20.0),
       child: ElevatedButton(
-        onPressed: () {
-          _registerController.register(route);
-        },
+        onPressed: _recyclerUpdateController.home,
         style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(horizontal: 130.0, vertical: 15.0),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15.0))),
-        child: Text('SIGUIENTE'),
+        child: Text('ACEPTAR'),
       ),
     );
   }

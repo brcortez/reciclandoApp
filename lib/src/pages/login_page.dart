@@ -1,4 +1,6 @@
+import 'package:ReciclandoAndo/src/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -6,6 +8,21 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _loginController = LoginController();
+
+  String _userName = "";
+  String _password = "";
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
+      _loginController.init(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +34,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _nameApp(),
+              SizedBox(height: 15.0),
               _imageApp(),
               SizedBox(height: 15.0),
               _inputs(),
@@ -32,13 +50,18 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _imageApp() {
     return Container(
-      width: double.infinity,
-      child: Icon(
-        Icons.flutter_dash,
-        size: 100.0,
-        color: Colors.green,
-      ),
-    );
+        width: double.infinity,
+        child: Image.asset(
+          'assets/img/delivery.png',
+          height: 100.0,
+          width: 100.0,
+        )
+        // Icon(
+        //   Icons.flutter_dash,
+        //   size: 100.0,
+        //   color: Colors.green,
+        // ),
+        );
   }
 
   Widget _nameApp() {
@@ -48,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
         padding:
             EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.10),
         child: Text(
-          'BIENVENIDO!',
+          'RECICLANDO ANDO',
           style: TextStyle(
               fontSize: 25.0, color: Colors.black, letterSpacing: 1.0),
           textAlign: TextAlign.center,
@@ -73,6 +96,7 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
+        controller: _loginController.emailController,
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
           hintText: 'Correo Electrónico o Usuario',
@@ -82,6 +106,11 @@ class _LoginPageState extends State<LoginPage> {
           contentPadding: EdgeInsets.all(15.0),
           prefixIcon: Icon(Icons.email_rounded),
         ),
+        onChanged: (data) {
+          setState(() {
+            _userName = data;
+          });
+        },
       ),
     );
   }
@@ -90,6 +119,7 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 10.0),
       child: TextField(
+        controller: _loginController.passwordController,
         obscureText: true,
         decoration: InputDecoration(
           hintText: 'Contraseña',
@@ -99,6 +129,11 @@ class _LoginPageState extends State<LoginPage> {
           contentPadding: EdgeInsets.all(15.0),
           prefixIcon: Icon(Icons.vpn_key_rounded),
         ),
+        onChanged: (data) {
+          setState(() {
+            _password = data;
+          });
+        },
       ),
     );
   }
@@ -107,9 +142,7 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       margin: EdgeInsets.only(top: 20.0),
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, 'homeUser');
-        },
+        onPressed: _loginController.login,
         child: Text('INGRESAR'),
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(horizontal: 130.0, vertical: 15.0),
@@ -132,9 +165,7 @@ class _LoginPageState extends State<LoginPage> {
             style: TextStyle(fontSize: 13.0),
           ),
           TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, 'register');
-            },
+            onPressed: _loginController.goToRegisterPage,
             child: Text('REGISTRATE'),
           ),
         ],

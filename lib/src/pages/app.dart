@@ -16,6 +16,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: getApplicationRoutes(),
       theme: ThemeData(
+        appBarTheme: AppBarTheme(elevation: 0),
         primarySwatch: Colors.green,
       ),
       onGenerateRoute: (RouteSettings settings) {

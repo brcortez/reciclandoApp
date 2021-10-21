@@ -1,5 +1,7 @@
+import 'package:ReciclandoAndo/src/controllers/register_controller.dart';
 import 'package:ReciclandoAndo/src/pages/app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class RegisterCentroAcopio2 extends StatefulWidget {
   @override
@@ -7,6 +9,17 @@ class RegisterCentroAcopio2 extends StatefulWidget {
 }
 
 class _RegisterCentroAcopio2State extends State<RegisterCentroAcopio2> {
+  final _registerController = RegisterController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
+      _registerController.init(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +42,7 @@ class _RegisterCentroAcopio2State extends State<RegisterCentroAcopio2> {
       width: double.infinity,
       child: Column(
         children: [
-          _inputUserName(),
+          _inputNameCollectionCenter(),
           _inputDocument(),
           _inputPhone(),
           _inputAddress(),
@@ -40,10 +53,11 @@ class _RegisterCentroAcopio2State extends State<RegisterCentroAcopio2> {
     );
   }
 
-  Widget _inputUserName() {
+  Widget _inputNameCollectionCenter() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
+        controller: _registerController.nameCollectionCenterController,
         textCapitalization: TextCapitalization.words,
         maxLines: 1,
         decoration: InputDecoration(
@@ -62,6 +76,7 @@ class _RegisterCentroAcopio2State extends State<RegisterCentroAcopio2> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
+        controller: _registerController.rucCollectionCenterController,
         keyboardType: TextInputType.number,
         maxLength: 10,
         decoration: InputDecoration(
@@ -81,6 +96,7 @@ class _RegisterCentroAcopio2State extends State<RegisterCentroAcopio2> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
+        controller: _registerController.phoneCollectionCenterController,
         keyboardType: TextInputType.phone,
         maxLength: 10,
         decoration: InputDecoration(
@@ -99,6 +115,7 @@ class _RegisterCentroAcopio2State extends State<RegisterCentroAcopio2> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
+        controller: _registerController.addressCollectionCenterController,
         maxLines: 1,
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
@@ -114,11 +131,12 @@ class _RegisterCentroAcopio2State extends State<RegisterCentroAcopio2> {
   }
 
   Widget _btnRegister() {
+    String route = "registerCollectionCenter";
     return Container(
       padding: EdgeInsets.only(bottom: 20.0),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/');
+          _registerController.register(route);
         },
         style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(horizontal: 130.0, vertical: 15.0),

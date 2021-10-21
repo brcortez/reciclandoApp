@@ -1,4 +1,6 @@
+import 'package:ReciclandoAndo/src/controllers/register_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -6,6 +8,18 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final _registerController = RegisterController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
+      _registerController.init(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,9 +111,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget _btnUser() {
     return MaterialButton(
-      onPressed: () {
-        Navigator.pushNamed(context, 'registerUser');
-      },
+      onPressed: _registerController.goToRegisterUser,
       splashColor: Colors.green[100],
       child: Container(
         decoration: BoxDecoration(
@@ -128,9 +140,7 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
       ),
       // ),
-      onPressed: () {
-        Navigator.pushNamed(context, 'registerCentroAcopio1');
-      },
+      onPressed: _registerController.goToRegisterCentroAcopio1,
     );
   }
 }

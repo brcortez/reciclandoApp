@@ -1,4 +1,6 @@
+import 'package:ReciclandoAndo/src/controllers/register_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class RegisterUserPage extends StatefulWidget {
   @override
@@ -6,6 +8,17 @@ class RegisterUserPage extends StatefulWidget {
 }
 
 class _RegisterUserPageState extends State<RegisterUserPage> {
+  final _registerController = RegisterController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
+      _registerController.init(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +76,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
+        controller: _registerController.nameRegisterController,
         textCapitalization: TextCapitalization.words,
         maxLines: 1,
         decoration: InputDecoration(
@@ -81,6 +95,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
+        controller: _registerController.lastNameRegisterController,
         textCapitalization: TextCapitalization.words,
         maxLines: 1,
         decoration: InputDecoration(
@@ -99,6 +114,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
+        controller: _registerController.documentRegisterController,
         keyboardType: TextInputType.number,
         maxLength: 10,
         decoration: InputDecoration(
@@ -118,6 +134,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
+        controller: _registerController.phoneRegisterController,
         keyboardType: TextInputType.phone,
         maxLength: 10,
         decoration: InputDecoration(
@@ -137,6 +154,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
+        controller: _registerController.emailRegisterController,
         maxLines: 1,
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
@@ -155,6 +173,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
+        controller: _registerController.passwordRegisterController,
         obscureText: true,
         decoration: InputDecoration(
           hintText: 'Contraseña',
@@ -169,11 +188,12 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
   }
 
   Widget _btnRegister() {
+    String route = "registerUser";
     return Container(
       padding: EdgeInsets.only(bottom: 20.0),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/');
+          _registerController.register(route);
         },
         style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(horizontal: 130.0, vertical: 15.0),
