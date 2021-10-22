@@ -16,6 +16,9 @@
 - Configuracion Backend de la aplicación
 - Creacion servidor en NodeJS
 - Probando rutas del servidor
+- ![50%](https://progress-bar.dev/30)
+
+
 
 ![Alt Text](https://media.giphy.com/media/6Qotkeqtn2PnUBzry1/source.gif)
 
