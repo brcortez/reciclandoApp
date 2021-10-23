@@ -12,11 +12,11 @@ class RegisterController {
   TextEditingController phoneController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
   TextEditingController confirmPasswordController = new TextEditingController();
-
+/*
   Future init(BuildContext context) {
     this.context = context;
   }
-
+*/
   void register() {
     String email = emailController.text.trim();
     String name = nameController.text;
