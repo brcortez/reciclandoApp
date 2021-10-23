@@ -1,8 +1,8 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:flutter_delivery_udemy/src/register/register_page.dart';
-import 'src/login/login_page.dart';
+import 'package:flutter_delivery_udemy/src/pages/register/register_page.dart';
+import 'src/pages/login/login_page.dart';
 import 'src/utils/my_colors.dart';
 
 void main() {

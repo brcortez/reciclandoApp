@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_delivery_udemy/src/login/login_controller.dart';
+import 'package:flutter_delivery_udemy/src/pages/login/login_controller.dart';
 import 'package:flutter_delivery_udemy/src/utils/my_colors.dart';
 
 class LoginPage extends StatefulWidget {
