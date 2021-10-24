@@ -1,50 +1,54 @@
-import 'package:ReciclandoAndo/src/controllers/recycler_controller.dart';
+import 'package:ReciclandoAndo/src/controllers/controller_user/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-class HomeRecyclerPage extends StatefulWidget {
+//Diseño de la pantalla del Home(Usuario)
+
+class HomeUserPage extends StatefulWidget {
   @override
-  _HomeRecyclerPageState createState() => _HomeRecyclerPageState();
+  _HomeUserPageState createState() => _HomeUserPageState();
 }
 
-class _HomeRecyclerPageState extends State<HomeRecyclerPage> {
-  final _recyclerController = RecyclerController();
+class _HomeUserPageState extends State<HomeUserPage> {
+  final _userController = UserController();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
-      _recyclerController.init(context);
+      _userController.init(context);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _recyclerController.key,
+      key: _userController.key,
       appBar: AppBar(
+        title: Text('Reciclando Ando'),
         leading: _menuDrawer(),
         automaticallyImplyLeading: false,
       ),
       drawer: _drawer(),
       body: Center(
-        child: Text('Recycler'),
+        child: Text('User'),
       ),
     );
   }
 
   Widget _menuDrawer() {
     return GestureDetector(
-      onTap: _recyclerController.openDrawer,
+      onTap: _userController.openDrawer,
       child: Container(
         margin: EdgeInsets.only(left: 20.0),
         alignment: Alignment.centerLeft,
-        child: Image.asset(
-          'assets/img/menu.png',
-          width: 20,
-          height: 20,
-        ),
+        child: Icon(Icons.sort),
+        // Image.asset(
+        //   'assets/img/menu.png',
+        //   width: 20,
+        //   height: 20,
+        // ),
       ),
     );
   }
@@ -101,19 +105,51 @@ class _HomeRecyclerPageState extends State<HomeRecyclerPage> {
             ),
           ),
           ListTile(
-            onTap: _recyclerController.updateRecycler,
+            onTap: _userController.updateUser,
             title: Text('Editar Perfil'),
-            trailing: Icon(Icons.edit_outlined),
+            leading: Icon(
+              Icons.edit_outlined,
+              color: Colors.green,
+            ),
+            trailing: Icon(Icons.chevron_right_outlined),
+            minLeadingWidth: 10,
           ),
           ListTile(
-            onTap: () {},
+            onTap: _userController.request,
+            title: Text('Mis Peticiones'),
+            leading: Icon(
+              Icons.shopping_cart_outlined,
+              color: Colors.purple,
+            ),
+            trailing: Icon(Icons.chevron_right_outlined),
+            minLeadingWidth: 10,
+          ),
+          ListTile(
+            onTap: _userController.locations,
+            title: Text('Mis Direcciones'),
+            trailing: Icon(Icons.chevron_right_outlined),
+            leading: Image.asset(
+              'assets/img/icon_googleMap.png',
+              width: 20.0,
+              height: 20.0,
+            ),
+            minLeadingWidth: 10,
+          ),
+          ListTile(
+            onTap: _userController.settings,
             title: Text('Configuración'),
-            trailing: Icon(Icons.settings_outlined),
+            leading: Icon(Icons.settings_outlined),
+            trailing: Icon(Icons.chevron_right_outlined),
+            minLeadingWidth: 10,
           ),
           ListTile(
-            onTap: _recyclerController.logout,
+            onTap: _userController.logout,
             title: Text('Cerrar Sesión'),
-            trailing: Icon(Icons.logout_outlined),
+            leading: Icon(
+              Icons.power_settings_new_outlined,
+              color: Colors.red,
+            ),
+            minLeadingWidth: 10,
           ),
         ],
       ),

@@ -1,6 +1,8 @@
-import 'package:ReciclandoAndo/src/controllers/center_controller.dart';
+import 'package:ReciclandoAndo/src/controllers/controller_center/center_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+
+//Diseño de la pantalla del home(Centro de Acopio)
 
 class HomeCenterPage extends StatefulWidget {
   @override
@@ -26,9 +28,9 @@ class _HomeCenterPageState extends State<HomeCenterPage> {
       appBar: AppBar(
         title: Text(
           'Reciclando Ando',
-          style: TextStyle(color: Colors.black),
+          //style: TextStyle(color: Colors.black),
         ),
-        backgroundColor: Colors.white,
+        //backgroundColor: Colors.white,
         leading: _menuDrawer(),
         automaticallyImplyLeading: false,
       ),
@@ -45,7 +47,10 @@ class _HomeCenterPageState extends State<HomeCenterPage> {
       child: Container(
         margin: EdgeInsets.only(left: 20.0),
         alignment: Alignment.centerLeft,
-        child: Icon(Icons.sort, color: Colors.black),
+        child: Icon(
+          Icons.sort,
+          //color: Colors.black,
+        ),
       ),
     );
   }

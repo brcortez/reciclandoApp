@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class UserController {
+class RecyclerController {
   BuildContext? context;
   //final _sharedPref = SharePref();
   final key = GlobalKey<ScaffoldState>();
@@ -17,7 +17,11 @@ class UserController {
     key.currentState?.openDrawer();
   }
 
-  void updateUser() {
-    Navigator.pushNamed(context as BuildContext, 'user/edit');
+  void updateRecycler() {
+    Navigator.pushNamed(context as BuildContext, 'recycler/edit');
+  }
+
+  void settings() {
+    Navigator.pushNamed(context as BuildContext, 'recycler/settings');
   }
 }

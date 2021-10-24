@@ -3,6 +3,8 @@ import 'package:ReciclandoAndo/src/pages/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
+//Diseño de la pantalla de registro del centro de acopio
+
 class RegisterCentroAcopio2 extends StatefulWidget {
   @override
   _RegisterCentroAcopio2State createState() => _RegisterCentroAcopio2State();

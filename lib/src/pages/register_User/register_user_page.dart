@@ -2,6 +2,8 @@ import 'package:ReciclandoAndo/src/controllers/register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
+//Diseño de la pantalla del registro del usuario
+
 class RegisterUserPage extends StatefulWidget {
   @override
   _RegisterUserPageState createState() => _RegisterUserPageState();

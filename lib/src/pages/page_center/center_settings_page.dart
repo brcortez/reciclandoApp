@@ -1,4 +1,8 @@
+import 'package:ReciclandoAndo/src/controllers/controller_center/center_settings_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+
+//Diseño de la pantalla configuraciones(Centro de Acopio)
 
 class CenterSettingsPage extends StatefulWidget {
   CenterSettingsPage({Key? key}) : super(key: key);
@@ -8,6 +12,17 @@ class CenterSettingsPage extends StatefulWidget {
 }
 
 class _CenterSettingsPageState extends State<CenterSettingsPage> {
+  final _centerSetttingsController = CenterSettingsController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
+      _centerSetttingsController.init(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,31 +41,40 @@ class _CenterSettingsPageState extends State<CenterSettingsPage> {
       child: Column(
         children: [
           ListTile(
-            onTap: () {},
+            onTap: _centerSetttingsController.password,
             title: Text('Contraseña'),
             minLeadingWidth: 10,
             leading: Icon(
               Icons.vpn_key_outlined,
+              color: Colors.green,
             ),
-            trailing: Icon(Icons.chevron_right_outlined),
+            trailing: Icon(
+              Icons.chevron_right_outlined,
+            ),
           ),
           ListTile(
-            onTap: () {},
+            onTap: _centerSetttingsController.help,
             title: Text('Ayuda'),
             minLeadingWidth: 10,
             leading: Icon(
               Icons.help_outline_outlined,
+              color: Colors.green,
             ),
-            trailing: Icon(Icons.chevron_right_outlined),
+            trailing: Icon(
+              Icons.chevron_right_outlined,
+            ),
           ),
           ListTile(
-            onTap: () {},
+            onTap: _centerSetttingsController.information,
             title: Text('Información'),
             minLeadingWidth: 10,
             leading: Icon(
               Icons.info_outline,
+              color: Colors.green,
             ),
-            trailing: Icon(Icons.chevron_right_outlined),
+            trailing: Icon(
+              Icons.chevron_right_outlined,
+            ),
           ),
           ListTile(
             onTap: () {},
@@ -58,8 +82,11 @@ class _CenterSettingsPageState extends State<CenterSettingsPage> {
             minLeadingWidth: 10,
             leading: Icon(
               Icons.language,
+              color: Colors.green,
             ),
-            trailing: Icon(Icons.chevron_right_outlined),
+            trailing: Icon(
+              Icons.chevron_right_outlined,
+            ),
           ),
           ListTile(
             onTap: () {},
@@ -67,8 +94,11 @@ class _CenterSettingsPageState extends State<CenterSettingsPage> {
             minLeadingWidth: 10,
             leading: Icon(
               Icons.palette_outlined,
+              color: Colors.green,
             ),
-            trailing: Icon(Icons.chevron_right_outlined),
+            trailing: Icon(
+              Icons.chevron_right_outlined,
+            ),
           ),
         ],
       ),

@@ -1,21 +1,23 @@
-import 'package:ReciclandoAndo/src/controllers/recycler_update_controller.dart';
+import 'package:ReciclandoAndo/src/controllers/controller_center/center_update_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-class RecyclerUpdatePage extends StatefulWidget {
+//Diseño de la pantalla editar perfil(Administrador y Centro de Acopio)
+
+class CenterUpdatePage extends StatefulWidget {
   @override
-  _RecyclerUpdatePageState createState() => _RecyclerUpdatePageState();
+  _CenterUpdatePageState createState() => _CenterUpdatePageState();
 }
 
-class _RecyclerUpdatePageState extends State<RecyclerUpdatePage> {
-  final _recyclerUpdateController = RecyclerUpdateController();
+class _CenterUpdatePageState extends State<CenterUpdatePage> {
+  final _centerUpdateController = CenterUpdateController();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
-      _recyclerUpdateController.init(context);
+      _centerUpdateController.init(context);
     });
   }
 
@@ -45,8 +47,9 @@ class _RecyclerUpdatePageState extends State<RecyclerUpdatePage> {
           SizedBox(height: 25.0),
           _inputUserName(),
           _inputUserLastName(),
-          _inputDocument(),
           _inputPhone(),
+          _inputAddressCenter(),
+          _inputPhoneCenter(),
           SizedBox(height: 25.0),
           _btnRegister(),
         ],
@@ -74,7 +77,7 @@ class _RecyclerUpdatePageState extends State<RecyclerUpdatePage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _recyclerUpdateController.nameRegisterController,
+        controller: _centerUpdateController.nameRegisterController,
         textCapitalization: TextCapitalization.words,
         maxLines: 1,
         decoration: InputDecoration(
@@ -93,7 +96,7 @@ class _RecyclerUpdatePageState extends State<RecyclerUpdatePage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _recyclerUpdateController.lastNameRegisterController,
+        controller: _centerUpdateController.lastNameRegisterController,
         textCapitalization: TextCapitalization.words,
         maxLines: 1,
         decoration: InputDecoration(
@@ -108,31 +111,11 @@ class _RecyclerUpdatePageState extends State<RecyclerUpdatePage> {
     );
   }
 
-  Widget _inputDocument() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
-      child: TextField(
-        controller: _recyclerUpdateController.documentRegisterController,
-        keyboardType: TextInputType.number,
-        maxLength: 10,
-        decoration: InputDecoration(
-          hintText: 'Cédula',
-          counterText: '',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          contentPadding: EdgeInsets.all(15.0),
-          prefixIcon: Icon(Icons.article),
-        ),
-      ),
-    );
-  }
-
   Widget _inputPhone() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _recyclerUpdateController.phoneRegisterController,
+        controller: _centerUpdateController.phoneRegisterController,
         keyboardType: TextInputType.phone,
         maxLength: 10,
         decoration: InputDecoration(
@@ -148,12 +131,52 @@ class _RecyclerUpdatePageState extends State<RecyclerUpdatePage> {
     );
   }
 
+  Widget _inputAddressCenter() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
+      child: TextField(
+        controller: _centerUpdateController.addressCollectionCenterController,
+        keyboardType: TextInputType.phone,
+        maxLength: 10,
+        decoration: InputDecoration(
+            hintText: 'Dirección del Centro de Acopio',
+            counterText: '',
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            contentPadding: EdgeInsets.all(15.0),
+            prefixIcon: Icon(
+              Icons.location_on,
+            )),
+      ),
+    );
+  }
+
+  Widget _inputPhoneCenter() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
+      child: TextField(
+        controller: _centerUpdateController.phoneCollectionCenterController,
+        keyboardType: TextInputType.phone,
+        maxLength: 10,
+        decoration: InputDecoration(
+          hintText: 'Teléfono Centro de Acopio',
+          counterText: '',
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          contentPadding: EdgeInsets.all(15.0),
+          prefixIcon: Icon(Icons.phone),
+        ),
+      ),
+    );
+  }
+
   Widget _btnRegister() {
-    String route = "registerUser";
     return Container(
       padding: EdgeInsets.only(bottom: 20.0),
       child: ElevatedButton(
-        onPressed: _recyclerUpdateController.home,
+        onPressed: _centerUpdateController.home,
         style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(horizontal: 130.0, vertical: 15.0),
             shape: RoundedRectangleBorder(

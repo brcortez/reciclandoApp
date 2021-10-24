@@ -1,21 +1,24 @@
-import 'package:ReciclandoAndo/src/controllers/user_update_controller.dart';
+import 'package:ReciclandoAndo/src/controllers/controller_recycler/recycler_update_controller.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-class UserUpdatePage extends StatefulWidget {
+//Diseño de la pantalla editar perfil(Reciclador)
+
+class RecyclerUpdatePage extends StatefulWidget {
   @override
-  _UserUpdatePageState createState() => _UserUpdatePageState();
+  _RecyclerUpdatePageState createState() => _RecyclerUpdatePageState();
 }
 
-class _UserUpdatePageState extends State<UserUpdatePage> {
-  final _userUpdateController = UserUpdateController();
+class _RecyclerUpdatePageState extends State<RecyclerUpdatePage> {
+  final _recyclerUpdateController = RecyclerUpdateController();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
-      _userUpdateController.init(context);
+      _recyclerUpdateController.init(context);
     });
   }
 
@@ -74,7 +77,7 @@ class _UserUpdatePageState extends State<UserUpdatePage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _userUpdateController.nameRegisterController,
+        controller: _recyclerUpdateController.nameRegisterController,
         textCapitalization: TextCapitalization.words,
         maxLines: 1,
         decoration: InputDecoration(
@@ -93,7 +96,7 @@ class _UserUpdatePageState extends State<UserUpdatePage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _userUpdateController.lastNameRegisterController,
+        controller: _recyclerUpdateController.lastNameRegisterController,
         textCapitalization: TextCapitalization.words,
         maxLines: 1,
         decoration: InputDecoration(
@@ -112,7 +115,7 @@ class _UserUpdatePageState extends State<UserUpdatePage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _userUpdateController.documentRegisterController,
+        controller: _recyclerUpdateController.documentRegisterController,
         keyboardType: TextInputType.number,
         maxLength: 10,
         decoration: InputDecoration(
@@ -132,7 +135,7 @@ class _UserUpdatePageState extends State<UserUpdatePage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 5.0),
       child: TextField(
-        controller: _userUpdateController.phoneRegisterController,
+        controller: _recyclerUpdateController.phoneRegisterController,
         keyboardType: TextInputType.phone,
         maxLength: 10,
         decoration: InputDecoration(
@@ -153,7 +156,7 @@ class _UserUpdatePageState extends State<UserUpdatePage> {
     return Container(
       padding: EdgeInsets.only(bottom: 20.0),
       child: ElevatedButton(
-        onPressed: _userUpdateController.home,
+        onPressed: _recyclerUpdateController.home,
         style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(horizontal: 130.0, vertical: 15.0),
             shape: RoundedRectangleBorder(

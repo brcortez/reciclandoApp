@@ -7,6 +7,7 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
+//clase principal de la app
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: getApplicationRoutes(),
       theme: ThemeData(
-        appBarTheme: AppBarTheme(elevation: 0),
+        //appBarTheme: AppBarTheme(elevation: 0),
         primarySwatch: Colors.green,
       ),
       onGenerateRoute: (RouteSettings settings) {

@@ -2,6 +2,8 @@ import 'package:ReciclandoAndo/src/controllers/register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
+//Diseño de la pantalla de registro del administrador
+
 class RegisterCentroAcopioPage1 extends StatefulWidget {
   @override
   _RegisterCentroAcopioPage1State createState() =>

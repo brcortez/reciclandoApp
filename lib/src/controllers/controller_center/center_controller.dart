@@ -13,6 +13,10 @@ class CenterController {
     key.currentState?.openDrawer();
   }
 
+  void home() {
+    Navigator.pushNamed(context as BuildContext, 'center/home');
+  }
+
   void updateCenter() {
     Navigator.pushNamed(context as BuildContext, 'center/edit');
   }

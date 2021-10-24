@@ -1,50 +1,50 @@
-import 'package:ReciclandoAndo/src/controllers/user_controller.dart';
+import 'package:ReciclandoAndo/src/controllers/controller_recycler/recycler_controller.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-class HomeUserPage extends StatefulWidget {
+//Diseño de la pantalla del home(Reciclador)
+
+class HomeRecyclerPage extends StatefulWidget {
   @override
-  _HomeUserPageState createState() => _HomeUserPageState();
+  _HomeRecyclerPageState createState() => _HomeRecyclerPageState();
 }
 
-class _HomeUserPageState extends State<HomeUserPage> {
-  final _userController = UserController();
+class _HomeRecyclerPageState extends State<HomeRecyclerPage> {
+  final _recyclerController = RecyclerController();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
-      _userController.init(context);
+      _recyclerController.init(context);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _userController.key,
+      key: _recyclerController.key,
       appBar: AppBar(
         leading: _menuDrawer(),
+        title: Text('Reciclando Ando'),
         automaticallyImplyLeading: false,
       ),
       drawer: _drawer(),
       body: Center(
-        child: Text('User'),
+        child: Text('Recycler'),
       ),
     );
   }
 
   Widget _menuDrawer() {
     return GestureDetector(
-      onTap: _userController.openDrawer,
+      onTap: _recyclerController.openDrawer,
       child: Container(
         margin: EdgeInsets.only(left: 20.0),
         alignment: Alignment.centerLeft,
-        child: Image.asset(
-          'assets/img/menu.png',
-          width: 20,
-          height: 20,
-        ),
+        child: Icon(Icons.sort),
       ),
     );
   }
@@ -101,14 +101,30 @@ class _HomeUserPageState extends State<HomeUserPage> {
             ),
           ),
           ListTile(
-            onTap: _userController.updateUser,
+            onTap: _recyclerController.updateRecycler,
             title: Text('Editar Perfil'),
-            trailing: Icon(Icons.edit_outlined),
+            leading: Icon(
+              Icons.edit_outlined,
+              color: Colors.green,
+            ),
+            minLeadingWidth: 10,
+            trailing: Icon(Icons.chevron_right_outlined),
           ),
           ListTile(
-            onTap: _userController.logout,
+            onTap: _recyclerController.settings,
+            title: Text('Configuración'),
+            leading: Icon(Icons.settings_outlined),
+            minLeadingWidth: 10,
+            trailing: Icon(Icons.chevron_right_outlined),
+          ),
+          ListTile(
+            onTap: _recyclerController.logout,
             title: Text('Cerrar Sesión'),
-            trailing: Icon(Icons.logout_outlined),
+            leading: Icon(
+              Icons.power_settings_new_outlined,
+              color: Colors.red,
+            ),
+            minLeadingWidth: 10,
           ),
         ],
       ),

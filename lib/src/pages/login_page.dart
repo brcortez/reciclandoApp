@@ -2,6 +2,8 @@ import 'package:ReciclandoAndo/src/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
+//Diseño de la pantalla del login
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
