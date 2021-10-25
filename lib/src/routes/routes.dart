@@ -1,4 +1,6 @@
 import 'package:ReciclandoAndo/src/pages/login_page.dart';
+import 'package:ReciclandoAndo/src/pages/page_center/append/center_add_location_page.dart';
+import 'package:ReciclandoAndo/src/pages/page_center/append/center_add_recycler_page.dart';
 import 'package:ReciclandoAndo/src/pages/page_center/center_locations_page.dart';
 import 'package:ReciclandoAndo/src/pages/page_center/center_products_page.dart';
 import 'package:ReciclandoAndo/src/pages/page_center/center_recyclers_page.dart';
@@ -65,7 +67,9 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'center/edit': (BuildContext context) => CenterUpdatePage(),
     'center/products': (BuildContext context) => CenterProductsPage(),
     'center/recyclers': (BuildContext context) => CenterRecyclersPage(),
+    'center/recycler/new': (BuildContext context) => CenterAddRecyclerPage(),
     'center/locations': (BuildContext context) => CenterLocationsPage(),
+    'center/location/new': (BuildContext context) => CenterAddLocationPage(),
     'center/settings': (BuildContext context) => CenterSettingsPage(),
     'center/settings/password': (BuildContext context) => CenterPasswordPage(),
     'center/settings/help': (BuildContext context) => CenterHelpPage(),

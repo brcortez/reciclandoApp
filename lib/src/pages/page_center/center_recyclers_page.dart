@@ -1,15 +1,26 @@
+import 'package:ReciclandoAndo/src/controllers/controller_center/center_add_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 //Diseño de la pantalla recicladores(Centro de Acopio)
 
 class CenterRecyclersPage extends StatefulWidget {
-  CenterRecyclersPage({Key? key}) : super(key: key);
-
   @override
   _CenterRecyclersPageState createState() => _CenterRecyclersPageState();
 }
 
 class _CenterRecyclersPageState extends State<CenterRecyclersPage> {
+  final _centerAddController = CenterAddController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
+      _centerAddController.init(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +33,7 @@ class _CenterRecyclersPageState extends State<CenterRecyclersPage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: _centerAddController.newRecycler,
         child: Icon(Icons.person_add_alt_1),
       ),
     );

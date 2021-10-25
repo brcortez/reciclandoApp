@@ -1,15 +1,26 @@
+import 'package:ReciclandoAndo/src/controllers/controller_center/center_add_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 //Diseño de la pantalla locaciones(Centro de Acopio)
 
 class CenterLocationsPage extends StatefulWidget {
-  CenterLocationsPage({Key? key}) : super(key: key);
-
   @override
   _CenterLocationsPageState createState() => _CenterLocationsPageState();
 }
 
 class _CenterLocationsPageState extends State<CenterLocationsPage> {
+  final _centerAddController = CenterAddController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
+      _centerAddController.init(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,8 +33,8 @@ class _CenterLocationsPageState extends State<CenterLocationsPage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add_location),
+        onPressed: _centerAddController.newLocation,
+        child: Icon(Icons.add_location_alt_outlined),
       ),
     );
   }
