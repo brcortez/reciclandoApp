@@ -13,7 +13,7 @@ class LoginController {
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
 
-    goToHomeCentroAcopio();
+    goToHomePageUser();
   }
 
   void goToRegisterPage() {

@@ -23,20 +23,38 @@ class _HomeCenterPageState extends State<HomeCenterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _centerController.key,
-      appBar: AppBar(
-        title: Text(
-          'Reciclando Ando',
-          //style: TextStyle(color: Colors.black),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        key: _centerController.key,
+        appBar: AppBar(
+          title: Text(
+            'Reciclando Ando',
+            //style: TextStyle(color: Colors.black),
+          ),
+          leading: _menuDrawer(),
+          actions: [],
+          bottom: TabBar(
+            indicatorColor: Colors.white,
+            labelColor: Colors.black,
+            unselectedLabelColor: Colors.white,
+            isScrollable: true,
+            tabs: List<Widget>.generate(3, (index) {
+              return Tab(
+                child: Text('Centro' ?? 'sd'),
+              );
+            }),
+          ),
+          automaticallyImplyLeading: false,
         ),
-        //backgroundColor: Colors.white,
-        leading: _menuDrawer(),
-        automaticallyImplyLeading: false,
-      ),
-      drawer: _drawer(),
-      body: Center(
-        child: Text('Center'),
+        drawer: _drawer(),
+        body: TabBarView(
+          children: [
+            Center(child: Text('Centro de Acopio')),
+            Center(child: Text('Centro de Acopio')),
+            Center(child: Text('Centro de Acopio'))
+          ],
+        ),
       ),
     );
   }
@@ -49,7 +67,8 @@ class _HomeCenterPageState extends State<HomeCenterPage> {
         alignment: Alignment.centerLeft,
         child: Icon(
           Icons.sort,
-          //color: Colors.black,
+          size: 30.0,
+          color: Colors.white,
         ),
       ),
     );

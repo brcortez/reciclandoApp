@@ -24,17 +24,35 @@ class _HomeRecyclerPageState extends State<HomeRecyclerPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _recyclerController.key,
-      appBar: AppBar(
-        leading: _menuDrawer(),
-        title: Text('Reciclando Ando'),
-        automaticallyImplyLeading: false,
-      ),
-      drawer: _drawer(),
-      body: Center(
-        child: Text('Recycler'),
-      ),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+          key: _recyclerController.key,
+          appBar: AppBar(
+            leading: _menuDrawer(),
+            title: Text('Reciclando Ando'),
+            automaticallyImplyLeading: false,
+            actions: [],
+            bottom: TabBar(
+              indicatorColor: Colors.white,
+              labelColor: Colors.black,
+              unselectedLabelColor: Colors.white,
+              isScrollable: true,
+              tabs: List<Widget>.generate(3, (index) {
+                return Tab(
+                  child: Text('Centro' ?? 'sd'),
+                );
+              }),
+            ),
+          ),
+          drawer: _drawer(),
+          body: TabBarView(
+            children: [
+              Center(child: Text('Recycler')),
+              Center(child: Text('Recycler')),
+              Center(child: Text('Recycler'))
+            ],
+          )),
     );
   }
 
