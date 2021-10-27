@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
               _nameApp(),
               SizedBox(height: 15.0),
               _imageApp(),
-              SizedBox(height: 15.0),
+              //SizedBox(height: 15.0),
               _inputs(),
               _buttonLogin(),
               Expanded(child: SizedBox()),
@@ -54,16 +54,10 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
         width: double.infinity,
         child: Image.asset(
-          'assets/img/delivery.png',
-          height: 100.0,
-          width: 100.0,
-        )
-        // Icon(
-        //   Icons.flutter_dash,
-        //   size: 100.0,
-        //   color: Colors.green,
-        // ),
-        );
+          'assets/img/icon_app.png',
+          height: 150.0,
+          width: 200.0,
+        ));
   }
 
   Widget _nameApp() {
@@ -75,7 +69,10 @@ class _LoginPageState extends State<LoginPage> {
         child: Text(
           'RECICLANDO ANDO',
           style: TextStyle(
-              fontSize: 25.0, color: Colors.black, letterSpacing: 1.0),
+              fontSize: 27.0,
+              color: Colors.black,
+              letterSpacing: 1.0,
+              fontFamily: 'Righteous'),
           textAlign: TextAlign.center,
         ),
       ),

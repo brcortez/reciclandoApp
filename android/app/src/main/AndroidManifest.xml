@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bryan.flutter_delivery_udemy">
    <application
-        android:label="flutter_delivery_udemy"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Reciclando Ando"
+        android:icon="@mipmap/icon_app">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

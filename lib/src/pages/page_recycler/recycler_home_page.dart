@@ -40,7 +40,7 @@ class _HomeRecyclerPageState extends State<HomeRecyclerPage> {
               isScrollable: true,
               tabs: List<Widget>.generate(3, (index) {
                 return Tab(
-                  child: Text('Centro' ?? 'sd'),
+                  child: Text('Centro'),
                 );
               }),
             ),
