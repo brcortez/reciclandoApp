@@ -12,7 +12,7 @@
 ![Alt Text](https://media.giphy.com/media/VbemoJTkGDarkaDXhQ/giphy.gif)
 
 ## Icono de la app
-![alt Text](https://ibb.co/qCM7BH6)
+![alt Text](https://i.postimg.cc/YCQyKmTW/icon.png)
 
 ### Pre-requisitos 📋
 - [VisualStudio code](https://code.visualstudio.com/)
