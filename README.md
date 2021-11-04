@@ -5,6 +5,15 @@
 
 ## [Link del ux case del proyecto :art:](https://www.figma.com/file/TZl198OABgCCgkhJq0nuUS/Reciclando_UX_Estudio?node-id=216%3A10)
 
+## Vista Previa 
+![Alt Text](https://media.giphy.com/media/4JEeWlJp0W7hh9L0yj/giphy.gif)
+
+## Temas
+![Alt Text](https://media.giphy.com/media/VbemoJTkGDarkaDXhQ/giphy.gif)
+
+## Icono de la app
+![Alt Text](https://ibb.co/qCM7BH6)
+
 ### Pre-requisitos 📋
 - [VisualStudio code](https://code.visualstudio.com/)
 - [Android studio](https://developer.android.com/studio?hl=es-419)
