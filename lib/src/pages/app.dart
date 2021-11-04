@@ -1,6 +1,8 @@
+import 'package:ReciclandoAndo/blocs/theme.dart';
 import 'package:ReciclandoAndo/src/pages/notPageFound.dart';
 import 'package:ReciclandoAndo/src/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -11,15 +13,24 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => ThemeChanger(ThemeData.dark()),
+      child: MaterialAppWithTheme(),
+    );
+  }
+}
+
+class MaterialAppWithTheme extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Provider.of<ThemeChanger>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Reciclando App',
       initialRoute: '/',
       routes: getApplicationRoutes(),
-      theme: ThemeData(
-        //appBarTheme: AppBarTheme(elevation: 0),
-        primarySwatch: Colors.green,
-      ),
+      theme: theme.getTheme(),
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(
             builder: (BuildContext context) => NotPageFound());

@@ -19,6 +19,15 @@ class CenterSettingsController {
     Navigator.pushNamed(context as BuildContext, 'center/settings/information');
   }
 
+  void politics() {
+    Navigator.pushNamed(
+        context as BuildContext, 'center/settings/information/politics');
+  }
+
+  void theme() {
+    Navigator.pushNamed(context as BuildContext, 'center/settings/theme');
+  }
+
   void home() {
     Navigator.pushNamed(context as BuildContext, 'center/home');
   }

@@ -89,7 +89,7 @@ class _CenterSettingsPageState extends State<CenterSettingsPage> {
             ),
           ),
           ListTile(
-            onTap: () {},
+            onTap: _centerSetttingsController.theme,
             title: Text('Tema'),
             minLeadingWidth: 10,
             leading: Icon(

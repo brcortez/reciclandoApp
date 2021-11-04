@@ -2,7 +2,7 @@
     package="com.bryan.flutter_delivery_udemy">
    <application
         android:label="Reciclando Ando"
-        android:icon="@mipmap/icon_app">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

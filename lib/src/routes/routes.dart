@@ -9,6 +9,8 @@ import 'package:ReciclandoAndo/src/pages/page_center/home_center_page.dart';
 import 'package:ReciclandoAndo/src/pages/page_center/settings/center_help_page.dart';
 import 'package:ReciclandoAndo/src/pages/page_center/settings/center_information_page.dart';
 import 'package:ReciclandoAndo/src/pages/page_center/settings/center_password_page.dart';
+import 'package:ReciclandoAndo/src/pages/page_center/settings/center_politics_page.dart';
+import 'package:ReciclandoAndo/src/pages/page_center/settings/center_theme_page.dart';
 import 'package:ReciclandoAndo/src/pages/page_center/updates/center_update_page.dart';
 import 'package:ReciclandoAndo/src/pages/page_recycler/recycler_home_page.dart';
 import 'package:ReciclandoAndo/src/pages/page_recycler/recycler_settings_page.dart';
@@ -75,5 +77,8 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'center/settings/help': (BuildContext context) => CenterHelpPage(),
     'center/settings/information': (BuildContext context) =>
         CenterInformationPage(),
+    'center/settings/information/politics': (BuildContext context) =>
+        CenterPoliticsPage(),
+    'center/settings/theme': (BuildContext context) => CenterThemePage(),
   };
 }
