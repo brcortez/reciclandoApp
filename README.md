@@ -5,6 +5,16 @@
 
 ## [Link del ux case del proyecto :art:](https://www.figma.com/file/TZl198OABgCCgkhJq0nuUS/Reciclando_UX_Estudio?node-id=216%3A10)
 
+-login de ingreso a usuarios
+- UI themes 
+- pages de ayuda
+- pages de politicas de uso 
+- pages de idioma 
+- icono de la app
+
+- ![50%](https://progress-bar.dev/50)
+
+
 ## Vista Previa 
 ![Alt Text](https://media.giphy.com/media/4JEeWlJp0W7hh9L0yj/giphy.gif)
 
