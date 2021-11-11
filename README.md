@@ -16,7 +16,7 @@
 - Configuracion Backend de la aplicación
 - Creacion servidor en NodeJS
 - Probando rutas del servidor
-- ![50%](https://progress-bar.dev/30)
+- ![50%](https://progress-bar.dev/50)
 
 
 
